@@ -169,6 +169,28 @@ p { margin-bottom: 1rem; color: var(--color-text-muted); }
   width: 100%;
 }
 
+/* Tabs */
+.tab-btn {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.5rem 0.5rem 0.75rem 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.tab-btn:hover {
+  color: var(--color-text);
+}
+
+.tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
 /* Forms */
 .form-group {
   margin-bottom: 1.5rem;
@@ -257,9 +279,19 @@ p { margin-bottom: 1rem; color: var(--color-text-muted); }
 .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
 
 @media (max-width: 768px) {
-  .grid-cols-3, .grid-cols-2 { grid-template-columns: 1fr; }
+  .grid-cols-3, .grid-cols-2 { grid-template-columns: 1fr; gap: 1.5rem; }
   h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
   .glass-card { padding: 1.5rem; }
+  .hero-wrapper { min-height: auto !important; margin-top: 1rem; }
+  .navbar { padding: 1rem 0; }
+  .tabs { gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.75rem; }
+  .btn { padding: 0.6rem 1rem; font-size: 0.95rem; }
+  .glass-card { padding: 1.25rem; }
 }
 
 /* Badges */

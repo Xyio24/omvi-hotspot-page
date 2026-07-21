@@ -32,10 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       formLogin.classList.add('d-none');
       
       // Update Tab Styles
-      tabTrial.style.borderBottomColor = 'var(--color-primary)';
-      tabTrial.style.color = 'var(--color-text)';
-      tabLogin.style.borderBottomColor = 'transparent';
-      tabLogin.style.color = 'var(--color-text-muted)';
+      tabTrial.classList.add('active');
+      tabLogin.classList.remove('active');
     });
 
     tabLogin.addEventListener('click', () => {
@@ -44,10 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
       formTrial.classList.add('d-none');
       
       // Update Tab Styles
-      tabLogin.style.borderBottomColor = 'var(--color-primary)';
-      tabLogin.style.color = 'var(--color-text)';
-      tabTrial.style.borderBottomColor = 'transparent';
-      tabTrial.style.color = 'var(--color-text-muted)';
+      tabLogin.classList.add('active');
+      tabTrial.classList.remove('active');
     });
   }
 });
