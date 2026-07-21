@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Refresh page automatically based on MikroTik refresh interval -->
+  <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+  <title>Status - OMVI Internet</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script language="JavaScript">
+    <!--
+    $(if advert-pending == 'yes')
+        var popup = '';
+        function focusAdvert() {
+        if (window.focus) popup.focus();
+        }
+        function openAdvert() {
+        popup = open('$(link-advert)', 'hotspot_advert', '');
+        setTimeout("focusAdvert()", 1000);
+        }
+    $(endif)
+    function openLogout() {
+        if (window.name != 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+        window.close();
+        return false;
+    }
+    //-->
+  </script>
+</head>
+<body $(if advert-pending == 'yes') onLoad="openAdvert()" $(endif)>
+  <div class="bg-animated"></div>
+
+  <nav class="container navbar">
+    <a href="#" class="brand">OMVI ISP</a>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div style="max-width: 600px; margin: 2rem auto;">
+      <div class="glass glass-card text-center mb-4">
+        
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(37, 211, 102, 0.1); color: var(--color-whatsapp); border-radius: 50%; margin-bottom: 1rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        
+        <h2 class="mb-1">You're Connected!</h2>
+        <p class="mb-4">Enjoy your high-speed internet access.</p>
+        
+        $(if login-by == 'trial')
+          <!-- Trial User specific view -->
+          <div style="background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: var(--border-radius-md); margin-bottom: 2rem;">
+            <p class="mb-2" style="font-weight: 600;">Trial Time Remaining:</p>
+            <div id="countdown" style="font-size: 2.5rem; font-weight: 800; color: var(--color-primary); font-variant-numeric: tabular-nums;">
+              $(session-time-left)
+            </div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--color-accent);">Your session will automatically expire when time is up.</p>
+          </div>
+        $(elif login-by != 'mac')
+          <!-- Standard User view -->
+          <h3 class="mb-2">Welcome, $(username)!</h3>
+        $(endif)
+
+        <div class="grid grid-cols-2 text-left mb-4" style="gap: 1rem;">
+          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Data Downloaded</div>
+            <div style="font-size: 1.25rem; font-weight: 700;">$(bytes-out-nice)</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Data Uploaded</div>
+            <div style="font-size: 1.25rem; font-weight: 700;">$(bytes-in-nice)</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Uptime</div>
+            <div style="font-size: 1.25rem; font-weight: 700;">$(uptime)</div>
+          </div>
+          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.85rem; color: var(--color-text-muted);">IP Address</div>
+            <div style="font-size: 1.25rem; font-weight: 700;">$(ip)</div>
+          </div>
+        </div>
+
+        <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+          <button type="submit" class="btn btn-outline btn-full mb-3">Disconnect</button>
+        </form>
+      </div>
+
+      <!-- Upsell Banner -->
+      <div class="glass glass-card" style="background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(14,165,233,0.1)); border: 1px solid rgba(79,70,229,0.2);">
+        <h3 class="mb-2">Love the speed?</h3>
+        <p class="mb-3">Upgrade to a permanent home connection and enjoy unlimited data with no buffering.</p>
+        <a href="https://wa.me/1234567890?text=I want to subscribe to OMVI ISP" target="_blank" class="btn btn-primary btn-full">
+          Chat with Sales on WhatsApp
+        </a>
+      </div>
+      
+    </div>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/hotspot.js"></script>
+</body>
+</html>

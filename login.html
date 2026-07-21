@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMVI Internet - Free WiFi Portal</title>
+  <meta name="description" content="Welcome to OMVI Internet. Enjoy your 15-minute free high-speed WiFi or subscribe for unlimited access.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animated"></div>
+
+  <!-- Navbar -->
+  <nav class="container navbar">
+    <a href="#" class="brand">OMVI ISP</a>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle Theme">
+        <!-- Moon Icon (SVG) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="grid grid-cols-2" style="align-items: center; min-height: 70vh;">
+      
+      <!-- Hero Text & Auth Section -->
+      <div>
+        <h1 class="mb-2">Experience <span style="color: var(--color-primary)">Lightning Fast</span> Internet.</h1>
+        <p class="mb-4">Get a taste of premium fiber-optic speeds. Connect now and enjoy a seamless browsing experience with our complimentary 15-minute trial.</p>
+        
+        <div class="glass glass-card mb-5">
+          <!-- Hotspot Error (if any) -->
+          <div id="error-message" class="d-none mb-3" style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem;">
+            $(error)
+          </div>
+
+          <!-- Auth Tabs -->
+          <div class="tabs mb-4" style="display: flex; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0.5rem;">
+            <button id="tab-trial" class="btn btn-outline" style="border: none; border-bottom: 2px solid var(--color-primary); border-radius: 0;">Free Trial</button>
+            <button id="tab-login" class="btn btn-outline" style="border: none; border-bottom: 2px solid transparent; border-radius: 0; color: var(--color-text-muted);">Member Login</button>
+          </div>
+
+          <!-- Trial Form -->
+          <div id="form-trial">
+            <h3 class="mb-2">15-Minute Free Access</h3>
+            <p class="mb-4" style="font-size: 0.9rem;">No registration required. Just click and browse.</p>
+            <!-- MikroTik Trial Login -->
+            <a href="$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)" class="btn btn-primary btn-full mb-3">
+              Start Free Trial Now
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Subscriber Login Form (Hidden by default) -->
+          <form id="form-login" class="d-none" name="login" action="$(link-login-only)" method="post">
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            
+            <h3 class="mb-4">Welcome Back</h3>
+            <div class="form-group">
+              <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full mb-3">Login</button>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- Promotional Graphic / Features -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="glass glass-card">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: rgba(79, 70, 229, 0.1); padding: 1rem; border-radius: 50%; color: var(--color-primary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <div>
+              <h4 class="mb-1">Ultra Low Latency</h4>
+              <p style="margin: 0; font-size: 0.9rem;">Perfect for gaming and HD streaming.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass glass-card">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: 50%; color: var(--color-secondary);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div>
+              <h4 class="mb-1">Affordable Packages</h4>
+              <p style="margin: 0; font-size: 0.9rem;">High quality internet doesn't have to break the bank.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="mt-5 mb-5 text-center">
+      <h2 class="mb-2">Choose Your Plan</h2>
+      <p class="mb-5">Subscribe today and never worry about buffering again.</p>
+      
+      <div class="grid grid-cols-3 text-left">
+        <!-- Basic Plan -->
+        <div class="glass glass-card">
+          <h3 class="mb-1">Starter</h3>
+          <p class="mb-3">For casual browsing</p>
+          <div class="mb-4">
+            <span style="font-size: 2.5rem; font-weight: 800;">10</span> <span style="color: var(--color-text-muted);">Mbps</span>
+          </div>
+          <a href="https://wa.me/1234567890?text=I'm interested in the Starter 10Mbps plan" target="_blank" class="btn btn-outline btn-full">Subscribe via WhatsApp</a>
+        </div>
+        
+        <!-- Pro Plan -->
+        <div class="glass glass-card" style="transform: scale(1.05); border-color: var(--color-primary); box-shadow: 0 12px 40px rgba(79, 70, 229, 0.2);">
+          <div class="badge badge-accent mb-2">Most Popular</div>
+          <h3 class="mb-1">Family</h3>
+          <p class="mb-3">Perfect for multiple devices</p>
+          <div class="mb-4">
+            <span style="font-size: 2.5rem; font-weight: 800;">30</span> <span style="color: var(--color-text-muted);">Mbps</span>
+          </div>
+          <a href="https://wa.me/1234567890?text=I'm interested in the Family 30Mbps plan" target="_blank" class="btn btn-primary btn-full">Subscribe via WhatsApp</a>
+        </div>
+        
+        <!-- Premium Plan -->
+        <div class="glass glass-card">
+          <h3 class="mb-1">Gamer</h3>
+          <p class="mb-3">Ultimate speed and low ping</p>
+          <div class="mb-4">
+            <span style="font-size: 2.5rem; font-weight: 800;">100</span> <span style="color: var(--color-text-muted);">Mbps</span>
+          </div>
+          <a href="https://wa.me/1234567890?text=I'm interested in the Gamer 100Mbps plan" target="_blank" class="btn btn-outline btn-full">Subscribe via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center mb-4" style="color: var(--color-text-muted); font-size: 0.875rem;">
+    <p>&copy; 2026 OMVI ISP. All rights reserved.</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script src="md5.js"></script>
+  
+  <!-- MikroTik Error Parsing Script -->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      var error = "$(error)";
+      var errorElem = document.getElementById("error-message");
+      if (error && error !== "" && error.indexOf("$(error)") === -1) {
+        errorElem.innerText = error;
+        errorElem.classList.remove("d-none");
+      }
+    });
+  </script>
+</body>
+</html>
