@@ -50,17 +50,11 @@
           <div id="form-trial">
             <h3 class="mb-2">15-Minute Free Access</h3>
             <p class="mb-4" style="font-size: 0.9rem;">No registration required. Just click and browse.</p>
-            <!-- MikroTik Trial Login Form -->
-            <form name="trial-login" action="$(link-login-only)" method="post">
-              <input type="hidden" name="dst" value="$(link-orig)" />
-              <input type="hidden" name="popup" value="true" />
-              <!-- T-$(mac) is the standard format for MikroTik trial usernames -->
-              <input type="hidden" name="username" value="T-$(mac)" />
-              <button type="submit" class="btn btn-primary btn-full mb-3">
-                Start Free Trial Now
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </button>
-            </form>
+            <!-- MikroTik Trial Login -->
+            <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="btn btn-primary btn-full mb-3">
+              Start Free Trial Now
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
 
           <!-- Subscriber Login Form (Hidden by default) -->
