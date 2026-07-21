@@ -36,9 +36,11 @@
         
         <div class="glass glass-card mb-5">
           <!-- Hotspot Error (if any) -->
-          <div id="error-message" class="d-none mb-3" style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem;">
+          $(if error)
+          <div class="mb-3" style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem; padding: 0.75rem; background: rgba(244, 63, 94, 0.1); border-radius: var(--border-radius-sm); text-align: center;">
             $(error)
           </div>
+          $(endif)
 
           <!-- Auth Tabs -->
           <div class="tabs mb-4" style="display: flex; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0;">
@@ -51,10 +53,16 @@
             <h3 class="mb-2">15-Minute Free Access</h3>
             <p class="mb-4" style="font-size: 0.9rem;">No registration required. Just click and browse.</p>
             <!-- MikroTik Trial Login -->
+            $(if trial == 'yes')
             <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="btn btn-primary btn-full mb-3">
               Start Free Trial Now
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
+            $(elif trial != 'yes')
+            <button disabled class="btn btn-outline btn-full mb-3" style="opacity: 0.5; cursor: not-allowed;">
+              Trial Not Available
+            </button>
+            $(endif)
           </div>
 
           <!-- Subscriber Login Form (Hidden by default) -->
@@ -151,16 +159,6 @@
   <script src="assets/js/app.js"></script>
   <script src="md5.js"></script>
   
-  <!-- MikroTik Error Parsing Script -->
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-      var error = "$(error)";
-      var errorElem = document.getElementById("error-message");
-      if (error && error !== "" && error.indexOf("$(error)") === -1) {
-        errorElem.innerText = error;
-        errorElem.classList.remove("d-none");
-      }
-    });
-  </script>
+  <!-- Removed faulty JS error parsing. Using native MikroTik $(if error) instead -->
 </body>
 </html>
