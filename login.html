@@ -1,185 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OMVI Internet - Free WiFi Portal</title>
-  <meta name="description" content="Welcome to OMVI Internet. Enjoy your 15-minute free high-speed WiFi or subscribe for unlimited access.">
+  <title>OMVI NET - Free WiFi Portal</title>
+  <meta name="description"
+    content="Welcome to OMVI NET. Enjoy your 15-minute free high-speed WiFi or subscribe for unlimited access.">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <!-- Animated Background -->
   <div class="bg-animated"></div>
 
   <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="navbar" style="min-height: 76px; padding: 0.5rem 0; display: flex; align-items: center;">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-      <a href="#" class="brand" style="display: flex; align-items: center; margin-left: 0.75rem;"><img src="assets/img/omvi.svg" alt="OMVI Logo" style="height: 52px; width: auto;"></a>
-      <div class="nav-actions">
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle Theme">
-          <!-- Moon Icon (SVG) -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-      </div>
+      <a href="#" class="brand"
+        style="display: flex; align-items: center; text-decoration: none; margin-left: 0.75rem;">
+        <img src="assets/img/omvi-cropped.svg" alt="OMVI NET Logo"
+          style="height: 38px; width: auto; transform: translateY(-4px);">
+        <div
+          style="display: flex; align-items: center; gap: 0.75rem; padding-left: 0.7rem; border-left: 1.5px solid var(--glass-border);">
+          <span
+            style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); opacity: 0.75; text-transform: lowercase;">x</span>
+          <img src="assets/img/dasarata.svg" alt="Dasarata Logo"
+            style="height: 38px; width: auto; transform: translateY(2px); opacity: 0.95;">
+        </div>
+      </a>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main class="container">
-    <div class="grid grid-cols-2 hero-wrapper" style="align-items: center; min-height: 70vh;">
-      
-      <!-- Hero Text & Auth Section -->
-      <div>
-        <h1 class="mb-2">Rasakan Internet <span style="color: var(--color-primary)">Super Cepat</span>.</h1>
-        <p class="mb-4">Nikmati kecepatan internet fiber-optic premium. Hubungkan sekarang dan rasakan pengalaman browsing yang lancar dengan gratis akses 15 menit kami.</p>
-        
-        <div class="glass glass-card mb-5">
-          <!-- Hotspot Error (if any) -->
-          $(if error)
-          <div class="mb-3" style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem; padding: 0.75rem; background: rgba(244, 63, 94, 0.1); border-radius: var(--border-radius-sm); text-align: center;">
-            $(error)
-          </div>
-          $(endif)
+  <main class="container" style="padding-top: 2rem;">
+    <div class="hero-wrapper">
 
-          <!-- Auth Tabs -->
-          <div class="tabs mb-4" style="display: flex; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0;">
-            <button id="tab-trial" class="tab-btn active">Coba Gratis</button>
-            <button id="tab-login" class="tab-btn">Login Member</button>
-          </div>
+      <!-- Hero Header Section (Full Width Top) -->
+      <div class="hero-header mb-4 text-left">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          <span>OMVI NET • Internet Super Cepat & Low Latency</span>
+        </div>
 
-          <!-- Trial Form -->
-          <div id="form-trial">
-            <h3 class="mb-2">Akses Gratis 15 Menit</h3>
-            <p class="mb-4" style="font-size: 0.9rem;">Tanpa registrasi. Cukup klik dan langsung browsing.</p>
-            <!-- MikroTik Trial Login -->
-            $(if trial == 'yes')
-            <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="btn btn-primary btn-full mb-3">
-              Mulai Coba Gratis
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-            $(else)
-            <div style="text-align: center; margin-bottom: 1rem; padding: 1.25rem; border-radius: var(--border-radius-sm); background: rgba(79, 70, 229, 0.05); border: 1px solid rgba(79, 70, 229, 0.1);">
-              <h4 style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1rem;">Masa Trial Habis ⏱️</h4>
-              <p style="font-size: 0.85rem; margin-bottom: 1rem;">Yuk berlangganan sekarang untuk menikmati akses internet super cepat tanpa batas waktu!</p>
-              <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20ingin%20berlangganan%20internet%20OMVI" target="_blank" class="btn btn-whatsapp btn-full" style="padding: 0.6rem 1rem; font-size: 0.9rem;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                Hubungi Admin
-              </a>
+        <h1 class="mb-3"
+          style="font-size: clamp(2.3rem, 3.4vw, 3.3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.18; max-width: 850px;">
+          Rasakan Internet <span class="gradient-text">Super Cepat</span> & Stabil.
+        </h1>
+
+        <p class="mb-4" style="font-size: 1.05rem; line-height: 1.6; max-width: 720px;">
+          Nikmati kecepatan internet fiber-optic premium tanpa buffering. Langsung hubungkan sekarang dengan akses
+          gratis 15 menit.
+        </p>
+      </div>
+
+      <!-- Hero 2-Column Split: Left = Login Card, Right = Promo Cards (Aligned!) -->
+      <div class="hero-grid-split mb-5">
+
+        <!-- Left Column: Glass Login Card (Primary Focal Point) -->
+        <div>
+          <div class="glass glass-card login-card-hero">
+            <!-- Hotspot Error (if any) -->
+            $(if error)
+            <div class="mb-3"
+              style="color: var(--color-accent); font-weight: 600; font-size: 0.9rem; padding: 0.75rem; background: rgba(244, 63, 94, 0.1); border-radius: var(--border-radius-sm); text-align: center;">
+              $(error)
             </div>
             $(endif)
+
+            <!-- Auth Tabs -->
+            <div class="tabs mb-4"
+              style="display: flex; gap: 0.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 0;">
+              <button id="tab-trial" class="tab-btn active">Coba Gratis 15 Mnt</button>
+              <button id="tab-login" class="tab-btn">Login Member</button>
+            </div>
+
+            <!-- Trial Form -->
+            <div id="form-trial">
+              <h3 class="mb-1" style="font-size: 1.25rem;">Akses Gratis 15 Menit</h3>
+              <p class="mb-4" style="font-size: 0.9rem;">Tanpa registrasi. Cukup klik dan langsung browsing sepuasnya.</p>
+              <!-- MikroTik Trial Login -->
+              $(if trial == 'yes')
+              <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+                class="btn btn-primary btn-lg btn-full mb-2">
+                <span>Mulai Coba Gratis</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="margin-left: 0.5rem;">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              $(else)
+              <div
+                style="text-align: center; margin-bottom: 1rem; padding: 1.25rem; border-radius: var(--border-radius-sm); background: rgba(79, 70, 229, 0.05); border: 1px solid rgba(79, 70, 229, 0.15);">
+                <h4 style="color: var(--color-primary); margin-bottom: 0.4rem; font-size: 1rem;">Masa Trial Habis ⏱️</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 1rem;">Yuk berlangganan sekarang untuk menikmati akses
+                  internet super cepat tanpa batas!</p>
+                <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20ingin%20berlangganan%20internet%20OMVI%20NET"
+                  target="_blank" class="btn btn-whatsapp btn-full" style="padding: 0.6rem 1rem; font-size: 0.9rem;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="margin-right: 0.5rem;">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                    </path>
+                  </svg>
+                  Hubungi Admin WhatsApp
+                </a>
+              </div>
+              $(endif)
+            </div>
+
+            <!-- Subscriber Login Form (Hidden by default) -->
+            <form id="form-login" class="d-none" name="login" action="$(link-login-only)" method="post">
+              <input type="hidden" name="dst" value="$(link-orig)" />
+              <input type="hidden" name="popup" value="true" />
+
+              <h3 class="mb-3" style="font-size: 1.25rem;">Selamat Datang Kembali</h3>
+              <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Masukkan Username" required>
+              </div>
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-full mb-3">Masuk Akun</button>
+            </form>
+
+            <!-- Trust Badges -->
+            <div class="trust-bullets">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Instant 1-Click</span>
+              </div>
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Tanpa Registrasi</span>
+              </div>
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Fiber Dedicated</span>
+              </div>
+            </div>
+
           </div>
-
-          <!-- Subscriber Login Form (Hidden by default) -->
-          <form id="form-login" class="d-none" name="login" action="$(link-login-only)" method="post">
-            <input type="hidden" name="dst" value="$(link-orig)" />
-            <input type="hidden" name="popup" value="true" />
-            
-            <h3 class="mb-4">Selamat Datang Kembali</h3>
-            <div class="form-group">
-              <input type="text" name="username" class="form-control" placeholder="Username" required>
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" class="form-control" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full mb-3">Masuk</button>
-          </form>
-
         </div>
+
+        <!-- Right Column: Promotional ISP Features (Vertical Stack aligned with Login Card) -->
+        <div class="hero-visual-wrapper">
+          <div class="floating-badge-grid" style="display: flex; flex-direction: column; gap: 1.25rem;">
+
+            <div class="stat-pill-card" style="padding: 1.5rem;">
+              <div class="stat-pill-icon icon-purple" style="width: 50px; height: 50px; border-radius: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Low Latency</h4>
+                <p style="margin: 0; font-size: 0.85rem;">Sangat cocok untuk game online & streaming 4K HD tanpa lag.</p>
+              </div>
+            </div>
+
+            <div class="stat-pill-card" style="padding: 1.5rem;">
+              <div class="stat-pill-icon icon-cyan" style="width: 50px; height: 50px; border-radius: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Dual-Band Technology</h4>
+                <p style="margin: 0; font-size: 0.85rem;">Koneksi super lancar ke banyak perangkat sekaligus.</p>
+              </div>
+            </div>
+
+            <div class="stat-pill-card" style="padding: 1.5rem;">
+              <div class="stat-pill-icon icon-green" style="width: 50px; height: 50px; border-radius: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Dedicated Fiber</h4>
+                <p style="margin: 0; font-size: 0.85rem;">Koneksi internet stabil 24/7 langsung ke rumahmu.</p>
+              </div>
+            </div>
+
+            <div class="stat-pill-card" style="padding: 1.5rem;">
+              <div class="stat-pill-icon icon-rose" style="width: 50px; height: 50px; border-radius: 14px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Unlimited (Tanpa FUP)</h4>
+                <p style="margin: 0; font-size: 0.85rem;">Bebas browsing, download, & video call tanpa batas kuota.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
-
-      <!-- Promotional Graphic / Features -->
-      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div class="glass glass-card">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: rgba(79, 70, 229, 0.1); padding: 1rem; border-radius: 50%; color: var(--color-primary);">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-            </div>
-            <div>
-              <h4 class="mb-1">Ping Rendah</h4>
-              <p style="margin: 0; font-size: 0.9rem;">Sangat cocok untuk bermain game dan streaming HD.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="glass glass-card">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: 50%; color: var(--color-secondary);">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            </div>
-            <div>
-              <h4 class="mb-1">Paket Terjangkau</h4>
-              <p style="margin: 0; font-size: 0.9rem;">Internet berkualitas tinggi tidak harus mahal.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <!-- Pricing Section -->
     <section class="mt-5 mb-5 text-center">
-      <h2 class="mb-2">Pilih Paket Internetmu</h2>
-      <p class="mb-5">Berlangganan hari ini dan nikmati internet tanpa buffering.</p>
-      
-      <div class="grid grid-cols-4 text-left">
+      <div style="max-width: 680px; margin: 0 auto 3rem auto;">
+        <h2 style="font-size: 2.2rem; font-weight: 800;" class="mb-2">Pilih Paket Internet Favoritmu</h2>
+        <p style="font-size: 1.05rem;">Berlangganan hari ini untuk koneksi rumah unlimited tanpa FUP & tanpa kompromi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-4 pricing-grid-desktop text-left">
+
         <!-- 7Mbps Plan -->
-        <div class="glass glass-card">
+        <div class="glass glass-card pricing-card-enhanced">
           <h3 class="mb-1">Basic</h3>
-          <p class="mb-3">Untuk browsing ringan</p>
-          <div class="mb-4">
-            <span style="font-size: 2.5rem; font-weight: 800;">7</span> <span style="color: var(--color-text-muted);">Mbps</span>
-            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.5rem; font-size: 1.1rem;">Rp 100.000<span style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span></div>
+          <p class="mb-3" style="font-size: 0.85rem;">Untuk browsing & sosmed ringan</p>
+          <div class="mb-3">
+            <span style="font-size: 2.4rem; font-weight: 800;">7</span> <span
+              style="color: var(--color-text-muted); font-weight: 600;">Mbps</span>
+            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.4rem; font-size: 1.15rem;">
+              Rp 100.000<span
+                style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span>
+            </div>
           </div>
-          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Basic%207Mbps." target="_blank" class="btn btn-outline btn-full">Pilih Paket</a>
+
+          <ul class="pricing-features-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Speed Hingga 7 Mbps
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Unlimited (Tanpa FUP)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Ideal 1 - 2 Perangkat
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Bantuan Technical 24/7
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Basic%207Mbps."
+            target="_blank" class="btn btn-outline btn-full" style="margin-top: auto;">Pilih Paket</a>
         </div>
-        
+
         <!-- 15Mbps Plan -->
-        <div class="glass glass-card">
+        <div class="glass glass-card pricing-card-enhanced">
           <h3 class="mb-1">Standard</h3>
-          <p class="mb-3">Cocok untuk keseharian</p>
-          <div class="mb-4">
-            <span style="font-size: 2.5rem; font-weight: 800;">15</span> <span style="color: var(--color-text-muted);">Mbps</span>
-            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.5rem; font-size: 1.1rem;">Rp 120.000<span style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span></div>
+          <p class="mb-3" style="font-size: 0.85rem;">Cocok untuk kebutuhan harian</p>
+          <div class="mb-3">
+            <span style="font-size: 2.4rem; font-weight: 800;">15</span> <span
+              style="color: var(--color-text-muted); font-weight: 600;">Mbps</span>
+            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.4rem; font-size: 1.15rem;">
+              Rp 120.000<span
+                style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span>
+            </div>
           </div>
-          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Standard%2015Mbps." target="_blank" class="btn btn-outline btn-full">Pilih Paket</a>
+
+          <ul class="pricing-features-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Speed Hingga 15 Mbps
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Unlimited (Tanpa FUP)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Streaming HD Lancar
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Bantuan Technical 24/7
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Standard%2015Mbps."
+            target="_blank" class="btn btn-outline btn-full" style="margin-top: auto;">Pilih Paket</a>
         </div>
-        
-        <!-- 30Mbps Plan -->
-        <div class="glass glass-card" style="transform: scale(1.05); border-color: var(--color-primary); box-shadow: 0 12px 40px rgba(79, 70, 229, 0.2); z-index: 1;">
-          <div class="badge badge-accent mb-2">Paling Laris</div>
-          <h3 class="mb-1">Family</h3>
-          <p class="mb-3">Sempurna untuk keluarga</p>
-          <div class="mb-4">
-            <span style="font-size: 2.5rem; font-weight: 800;">30</span> <span style="color: var(--color-text-muted);">Mbps</span>
-            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.5rem; font-size: 1.1rem;">Rp 150.000<span style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span></div>
+
+        <!-- 30Mbps Plan (Recommended) -->
+        <div class="glass glass-card pricing-card-enhanced pricing-popular-card"
+          style="border-color: var(--color-primary); box-shadow: 0 16px 45px rgba(79, 70, 229, 0.25);">
+          <div class="pricing-popular-badge">🔥 Paling Laris</div>
+          <h3 class="mb-1" style="margin-top: 0.4rem;">Family</h3>
+          <p class="mb-3" style="font-size: 0.85rem;">Sempurna untuk seluruh keluarga</p>
+          <div class="mb-3">
+            <span style="font-size: 2.4rem; font-weight: 800; color: var(--color-primary);">30</span> <span
+              style="color: var(--color-text-muted); font-weight: 600;">Mbps</span>
+            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.4rem; font-size: 1.15rem;">
+              Rp 150.000<span
+                style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span>
+            </div>
           </div>
-          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Family%2030Mbps." target="_blank" class="btn btn-primary btn-full">Pilih Paket</a>
+
+          <ul class="pricing-features-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Speed Hingga 30 Mbps
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Unlimited (Tanpa FUP)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Low Ping Gaming & 4K
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Prioritas Support 24/7
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Family%2030Mbps."
+            target="_blank" class="btn btn-primary btn-full" style="margin-top: auto;">Pilih Paket</a>
         </div>
-        
+
         <!-- 50Mbps Plan -->
-        <div class="glass glass-card">
+        <div class="glass glass-card pricing-card-enhanced">
           <h3 class="mb-1">Pro</h3>
-          <p class="mb-3">Kecepatan tanpa kompromi</p>
-          <div class="mb-4">
-            <span style="font-size: 2.5rem; font-weight: 800;">50</span> <span style="color: var(--color-text-muted);">Mbps</span>
-            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.5rem; font-size: 1.1rem;">Rp 175.000<span style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span></div>
+          <p class="mb-3" style="font-size: 0.85rem;">Kecepatan tinggi tanpa kompromi</p>
+          <div class="mb-3">
+            <span style="font-size: 2.4rem; font-weight: 800;">50</span> <span
+              style="color: var(--color-text-muted); font-weight: 600;">Mbps</span>
+            <div style="font-weight: 700; color: var(--color-primary); margin-top: 0.4rem; font-size: 1.15rem;">
+              Rp 175.000<span
+                style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: normal;">/bln</span>
+            </div>
           </div>
-          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Pro%2050Mbps." target="_blank" class="btn btn-outline btn-full">Pilih Paket</a>
+
+          <ul class="pricing-features-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Speed Super Fast 50 Mbps
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Unlimited (Tanpa FUP)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Performa Gaming Pro
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              VIP Support 24/7
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20tertarik%20berlangganan%20paket%20Pro%2050Mbps."
+            target="_blank" class="btn btn-outline btn-full" style="margin-top: auto;">Pilih Paket</a>
         </div>
+
       </div>
     </section>
+
+    <!-- WhatsApp Support Banner CTA -->
+    <div class="whatsapp-banner">
+      <div>
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.4rem;">Butuh Bantuan Beli Paket / Pasang Baru?</h3>
+        <p style="margin: 0; font-size: 0.95rem;">Tim customer support kami siap melayani dan menjawab semua
+          pertanyaanmu via WhatsApp.</p>
+      </div>
+      <a href="https://wa.me/6285113685757?text=Halo%20admin%2C%20saya%20butuh%20informasi%20pemasangan%20internet%20OMVI%20NET"
+        target="_blank" class="btn btn-whatsapp" style="white-space: nowrap; padding: 0.85rem 1.75rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+          </path>
+        </svg>
+        Chat Admin WhatsApp
+      </a>
+    </div>
+
   </main>
 
   <footer class="text-center mb-4" style="color: var(--color-text-muted); font-size: 0.875rem;">
-    <p>&copy; 2026 OMVI ISP. Hak cipta dilindungi undang-undang.</p>
+    <p>&copy; 2026 OMVI NET. Hak cipta dilindungi undang-undang.</p>
   </footer>
 
   <script src="assets/js/app.js"></script>
   <script src="md5.js"></script>
-  
-  <!-- Removed faulty JS error parsing. Using native MikroTik $(if error) instead -->
 </body>
+
 </html>

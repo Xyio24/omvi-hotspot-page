@@ -1,49 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logged Out - OMVI Internet</title>
+  <title>Koneksi Terputus - OMVI NET</title>
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
+  <!-- Animated Background -->
   <div class="bg-animated"></div>
 
-  <nav class="container navbar">
-    <a href="#" class="brand">OMVI ISP</a>
+  <!-- Navbar -->
+  <nav class="navbar" style="min-height: 76px; padding: 0.5rem 0; display: flex; align-items: center;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="#" class="brand"
+        style="display: flex; align-items: center; text-decoration: none; margin-left: 0.75rem;">
+        <img src="assets/img/omvi-cropped.svg" alt="OMVI NET Logo"
+          style="height: 38px; width: auto; transform: translateY(-4px);">
+        <div
+          style="display: flex; align-items: center; gap: 0.75rem; padding-left: 0.7rem; border-left: 1.5px solid var(--glass-border);">
+          <span
+            style="font-size: 0.8rem; font-weight: 600; color: var(--color-text-muted); opacity: 0.75; text-transform: lowercase;">x</span>
+          <img src="assets/img/dasarata.svg" alt="Dasarata Logo"
+            style="height: 38px; width: auto; transform: translateY(2px); opacity: 0.95;">
+        </div>
+      </a>
+    </div>
   </nav>
 
-  <main class="container">
-    <div style="max-width: 600px; margin: 4rem auto;">
-      <div class="glass glass-card text-center mb-4">
-        
-        <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(244, 63, 94, 0.1); color: var(--color-accent); border-radius: 50%; margin-bottom: 1rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-        </div>
-        
-        <h2 class="mb-1">You have been disconnected</h2>
-        <p class="mb-4">Thank you for using OMVI Internet.</p>
+  <!-- Main Content -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
+    <div style="max-width: 580px; margin: 2rem auto;">
+      <div class="glass glass-card text-center mb-4 login-card-hero">
 
-        <div class="grid grid-cols-2 text-left mb-4" style="gap: 1rem;">
-          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
-            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Session Time</div>
-            <div style="font-size: 1.25rem; font-weight: 700;">$(uptime)</div>
+        <div
+          style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(244, 63, 94, 0.12); color: var(--color-accent); border-radius: 50%; margin-bottom: 1.25rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </div>
+
+        <h2 class="mb-1" style="font-size: 1.75rem; font-weight: 800;">Anda Telah Terputus</h2>
+        <p class="mb-4" style="font-size: 0.95rem;">Terima kasih telah menggunakan layanan OMVI NET.</p>
+
+        <div class="grid grid-cols-2 text-left mb-4" style="gap: 0.85rem;">
+          <div
+            style="background: rgba(255,255,255,0.15); border: 1px solid var(--glass-border); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.8rem; color: var(--color-text-muted); font-weight: 600;">Durasi Sesi</div>
+            <div style="font-size: 1.2rem; font-weight: 800; color: var(--color-primary); margin-top: 0.2rem;">$(uptime)
+            </div>
           </div>
-          <div style="background: rgba(0,0,0,0.02); padding: 1rem; border-radius: var(--border-radius-sm);">
-            <div style="font-size: 0.85rem; color: var(--color-text-muted);">Total Data</div>
-            <div style="font-size: 1.25rem; font-weight: 700;">$(bytes-total-nice)</div>
+          <div
+            style="background: rgba(255,255,255,0.15); border: 1px solid var(--glass-border); padding: 1rem; border-radius: var(--border-radius-sm);">
+            <div style="font-size: 0.8rem; color: var(--color-text-muted); font-weight: 600;">Total Penggunaan Data</div>
+            <div style="font-size: 1.2rem; font-weight: 800; color: var(--color-secondary); margin-top: 0.2rem;">
+              $(bytes-total-nice)</div>
           </div>
         </div>
-        
-        <a href="$(link-login)" class="btn btn-primary btn-full">Connect Again</a>
+
+        <a href="$(link-login)" class="btn btn-primary btn-lg btn-full">Hubungkan Kembali</a>
       </div>
-      
+
     </div>
   </main>
-  
+
   <script src="assets/js/app.js"></script>
 </body>
+
 </html>
